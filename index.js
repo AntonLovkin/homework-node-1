@@ -1,2 +1,4 @@
-console.log('Hello');
-console.log('ALARM')
+const contactsOperations = require('./contacts');
+
+const contacts =  contactsOperations.listContacts();
+console.log(contacts);
