@@ -10,8 +10,7 @@ async function listContacts() {
     try {
         const data = await fs.readFile(contactsPath);
         const contacts = JSON.parse(data);
-        // console.log(contacts);
-      return contacts;
+        return contacts;
         
     } catch (error) {
         throw error;
@@ -54,7 +53,8 @@ async function addContact(name, email, phone) {
 try {
   const newContact = { name, email, phone, id: v4() };
   const contacts = await listContacts();
-  const newListContacts =  contacts.push(newContact);
+//   const newListContacts =  contacts.push(newContact);
+  const newListContacts = [...contacts, newContact];
   await updateContacts(newListContacts);
   return newContact;
 }
